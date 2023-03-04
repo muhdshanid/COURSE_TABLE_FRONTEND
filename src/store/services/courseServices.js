@@ -4,7 +4,11 @@ const courseServices = createApi({
     reducerPath: "course",
   tagTypes: "courses",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/course/",
+    baseUrl: "https://easy-teal-bear-boot.cyclic.app/api/course/",
+    prepareHeaders: (headers, { getState }) => {
+        headers.set('Access-Control-Allow-Origin', '*')
+        return headers;
+      },
   }),
     endpoints:(builder) => {
         return {
